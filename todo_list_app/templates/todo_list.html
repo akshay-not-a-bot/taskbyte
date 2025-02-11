@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>ToDo List</title>
+{% endblock title %}
+{% block content %}
+    <div class="container">
+        <br />
+        {% if messages %}
+            {% for message in messages %}
+                <!-- Displaying alert msg for successful task completion with close button -->
+                <div class="alert alert-success d-flex align-items-center alert-dismissible fade show"
+                     role="alert">
+                    {{ message }}
+                    <button type="button"
+                            class="btn-close"
+                            data-bs-dismiss="alert"
+                            aria-label="Close"></button>
+                </div>
+            {% endfor %}
+        {% endif %}
+        <!-- adding POST method -->
+        <form method="POST">
+            {% csrf_token %}    <!-- must have security token -->
+            <div class="mb-3">
+                <label class="form-label">Add new Task</label>
+                <input type="text"
+                       class="form-control"
+                       name="task"
+                       placeholder="Add new Task">
+                <!-- name attr to connect it with model's "task" field -->
+            </div>
+            <div class="mb-3">
+                <input type="text"
+                       class="form-control"
+                       name="prio"
+                       placeholder="Task Priority">
+            </div>
+            <button type="submit" class="btn btn-primary">Add Task</button>
+        </form>
+        <br />
+        <table class="table table-hover table-bordered">
+            <thead class="table-primary">
+                <tr>
+                    <th scope="col">Task</th>
+                    <th scope="col">Prio</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if all_task %}
+                    {% for task in all_task %}
+                        <tr>
+                            <td>{{ task.task }}</td>
+                            <td>{{ task.prio }}</td>
+                            {% if task.done %}
+                                <td class="table-success">Done</td>
+                            {% else %}
+                                <td class="table-warning">Not Done</td>
+                            {% endif %}
+                            <td>
+                                <a href="{% url 'edit_task' task.id %}">Edit</a>
+                            </td>
+                            <td>
+                                <a href="{% url 'delete_task' task.id %}">Delete</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+{% endblock content %}

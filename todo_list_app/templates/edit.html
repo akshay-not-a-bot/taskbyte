@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}
+  <title>Edit Task - TaskByte</title>
+{% endblock title %}
+{% block content %}
+  <div class="container">
+    <br />
+    <!-- adding POST method for editing -->
+    <form method="POST">
+      {% csrf_token %}    <!-- must have security token -->
+      <div class="mb-3">
+        <label class="form-label">Task</label>
+        <input type="text"
+               class="form-control"
+               name="task"
+               placeholder="{{ task.task }}"
+               value="{{ task.task }}">
+        <!-- name attr to connect it with model's "task" field -->
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Priority</label>
+        <input type="text"
+               class="form-control"
+               name="prio"
+               placeholder="{{ task.prio }}"
+               value="{{ task.prio }}">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Finished?</label>
+        <input type="checkbox"
+               class="form-check-input"
+               name="done"
+               {% if task.done %}checked{% endif %}>
+      </div>
+      <button type="submit" class="btn btn-primary">Update Task</button>
+    </form>
+  {% endblock content %}
