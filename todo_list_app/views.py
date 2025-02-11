@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from .models import TaskList
 from .forms import TaskForm
 from django.contrib import messages
+from django.core.paginator import Paginator     # importing Paginator class
 
 # Create your views here.
 
@@ -16,7 +17,10 @@ def todo_list(request):
         return redirect("todo_list")
     # for GET request
     else:
-        all_task = TaskList.objects.all
+        all_task = TaskList.objects.all()
+        paginator = Paginator(all_task, 5)  # instantiating, Paginator(object to paginate, max_items in a page)
+        page = request.GET.get('pg')  # 'pg' is used in url to pass page number
+        all_task = paginator.get_page(page) # assigning paginator view for 'page' to all_task obj, which we use next to render todo_list.html
         return render(request, 'todo_list.html', {'all_task' : all_task})
 
 def delete_task(request, task_id):

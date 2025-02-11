@@ -70,5 +70,31 @@
                 {% endif %}
             </tbody>
         </table>
+        <!-- Pagination -->
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-end">
+                <li class="page-item">
+                    <a class="page-link" href="?pg=1">First</a>     <!-- First page -->
+                </li>
+                {% if all_task.has_previous %}
+                    <!-- first checking if prev page exists before trying to disply it -->
+                    <li class="page-item">
+                        <a class="page-link" href="?pg={{ all_task.previous_page_number }}">{{ all_task.previous_page_number }}</a>
+                    </li>
+                {% endif %}
+                <li class="page-item active" aria-current="page">
+                    <a class="page-link" href="?pg={{ all_task.number }}">{{ all_task.number }}</a>     <!-- current page, highlighting with active classb -->
+                </li>
+                {% if all_task.has_next %}
+                    <!-- simillarly checking if next page exists -->
+                    <li class="page-item">
+                        <a class="page-link" href="?pg={{ all_task.next_page_number }}">{{ all_task.next_page_number }}</a>
+                    </li>
+                {% endif %}
+                <li class="page-item">
+                    <a class="page-link" href="?pg={{ all_task.paginator.num_pages }}">Last</a>     <!-- Last page -->
+                </li>
+            </ul>
+        </nav>
     </div>
 {% endblock content %}
