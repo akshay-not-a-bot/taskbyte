@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.urls import reverse
 from django.http import HttpResponse
 from .models import TaskList
 from .forms import TaskForm
@@ -27,7 +28,7 @@ def delete_task(request, task_id):
     task = TaskList.objects.get(pk=task_id)
     task.delete()
     messages.success(request, "Task deleted successfully!", extra_tags="delete")
-    return redirect("todo_list")
+    return redirect("todo_list")   # TObe Done: redirect takes to the same page in pagination
 
 def edit_task(request, task_id):
     task = TaskList.objects.get(pk=task_id)

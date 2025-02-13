@@ -44,8 +44,8 @@
                     <th scope="col">Task</th>
                     <th scope="col">Prio</th>
                     <th scope="col">Status</th>
-                    <th scope="col">Edit</th>
-                    <th scope="col">Delete</th>
+                    <th scope="col" class="text-center">Edit</th>
+                    <th scope="col" class="text-center">Delete</th>
                 </tr>
             </thead>
             <tbody>
@@ -59,10 +59,10 @@
                             {% else %}
                                 <td class="table-warning">Not Done</td>
                             {% endif %}
-                            <td>
+                            <td class="text-center">
                                 <a href="{% url 'edit_task' task.id %}">Edit</a>
                             </td>
-                            <td>
+                            <td class="text-center">
                                 <a href="{% url 'delete_task' task.id %}">Delete</a>
                             </td>
                         </tr>
@@ -71,7 +71,7 @@
             </tbody>
         </table>
         <!-- Pagination -->
-        <nav aria-label="Page navigation example">
+        <nav aria-label="Page navigation">
             <ul class="pagination justify-content-end">
                 <li class="page-item">
                     <a class="page-link" href="?pg=1">First</a>     <!-- First page -->
