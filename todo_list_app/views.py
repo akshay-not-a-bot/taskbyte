@@ -39,6 +39,12 @@ def edit_task(request, task_id):
         return redirect("todo_list")
     else:
         return render(request, 'edit.html', {"task" : task})
+    
+def index(request):
+    context = {
+        'index_msg' : 'Welcome to the Homepage!!!'
+    }
+    return render(request, 'index.html', context)
 
 def contact(request):
     context = {
