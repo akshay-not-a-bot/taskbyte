@@ -6,14 +6,14 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('todo_list_app', '0002_rename_tasks_tasklist'),
+        ("todo_list_app", "0002_rename_tasks_tasklist"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='tasklist',
-            name='prio',
-            field=models.CharField(default='Low', max_length=4),
+            model_name="tasklist",
+            name="prio",
+            field=models.CharField(default="Low", max_length=4),
             preserve_default=False,
         ),
     ]
