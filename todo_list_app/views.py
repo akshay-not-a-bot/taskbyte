@@ -1,6 +1,4 @@
 from django.shortcuts import render, redirect
-from django.urls import reverse
-from django.http import HttpResponse
 from .models import TaskList
 from .forms import TaskForm
 from django.contrib import messages

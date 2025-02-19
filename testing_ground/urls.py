@@ -25,5 +25,5 @@ urlpatterns = [
     path("todolist/", include("todo_list_app.urls")),
     path("contact", todo_views.contact, name="contact"),
     path("about", todo_views.about, name="about"),
-    path("user", include("users_app.urls")),
+    path("account/", include("users_app.urls")),
 ]

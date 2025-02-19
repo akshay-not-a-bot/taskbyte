@@ -5,9 +5,9 @@
 {% block content %}
     <div class="container">
         <br />
+        <!-- Displaying alert msg for successful task completion with close button -->
         {% if messages %}
             {% for message in messages %}
-                <!-- Displaying alert msg for successful task completion with close button -->
                 <div class="alert alert-success d-flex align-items-center alert-dismissible fade show"
                      role="alert">
                     {{ message }}
