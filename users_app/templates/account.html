@@ -6,4 +6,8 @@
   <div class="container">
     <h1>{{ acc_msg }}</h1>
   </div>
+  <div class="text-center mt-5">
+    <a href="{% url 'register' %}" class="btn btn-primary shadow">Register</a>
+    <a href="{% url 'login' %}" class="btn btn-primary shadow">Login</a>
+  </div>
 {% endblock content %}

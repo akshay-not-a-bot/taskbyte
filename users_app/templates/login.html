@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 {% block title %}
-  <title>Register - TaskByte</title>
+  <title>Login - TaskByte</title>
 {% endblock title %}
 {% block content %}
   <div class="container">
@@ -18,11 +18,11 @@
       {% endfor %}
     {% endif %}
     <br>
-    <h1>Register your account</h1>
+    <h1>Please login to your account</h1>
     <form method="POST" class="mt-5 col-5">
       {% csrf_token %}
-      {{ register_form|crispy }}
-      <button type="submit" class="btn btn-primary">Register</button>
+      {{ form|crispy }}   <!-- Django uses "form" as login view form obj in it's class view -->
+      <button type="submit" class="btn btn-primary">Login</button>
     </form>
   </div>
 {% endblock content %}
