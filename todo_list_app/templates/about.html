@@ -1,7 +1,13 @@
-{% extends "base.html" %} {% block title %}
-<title>About Me</title>
-{% endblock title %} {% block content %}
-<div class="container">
-  <h1>{{ about_msg }}</h1>
-</div>
+{% extends "base.html" %}
+{% load static %}
+{% block background %}
+  style="background: url('{% static 'images/page.jpeg' %}') no-repeat center center/cover; height="100vh"; overflow: hidden;"
+{% endblock background %}
+{% block title %}
+  <title>About Me</title>
+{% endblock title %}
+{% block content %}
+  <div class="container">
+    <h1>{{ about_msg }}</h1>
+  </div>
 {% endblock content %}

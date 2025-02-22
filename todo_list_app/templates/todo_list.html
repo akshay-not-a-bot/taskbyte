@@ -1,4 +1,8 @@
 {% extends "base.html" %}
+{% load static %}
+{% block background %}
+    style="background: url('{% static 'images/page.jpeg' %}') no-repeat center center/cover; height="100vh"; overflow: hidden;"
+{% endblock background %}
 {% block title %}
     <title>ToDo List</title>
 {% endblock title %}

@@ -22,8 +22,9 @@ def todo_list(request):
         return redirect("todo_list")
     # for GET request
     else:
-        all_task = TaskList.objects.filter(owner=request.user)
+        all_task = TaskList.objects.filter(owner=request.user).order_by("id")
         # fitering to show only the tasks which thr current user is owner of
+        # ordering the list by id to avoid getting unordered list warning
         paginator = Paginator(all_task, 5)
         # instantiating, Paginator(object to paginate, max_items in a page)
         page = request.GET.get("pg")  # 'pg' is used in url to pass page number
