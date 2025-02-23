@@ -51,7 +51,7 @@ MIDDLEWARE = [
     "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
-ROOT_URLCONF = "testing_ground.urls"
+ROOT_URLCONF = "taskbyte.urls"
 
 TEMPLATES = [
     {
@@ -69,7 +69,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "testing_ground.wsgi.application"
+WSGI_APPLICATION = "taskbyte.wsgi.application"
 
 
 # Database

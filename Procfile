@@ -1,1 +1,1 @@
-web: python manage.py makemigrations && python manage.py migrate && gunicorn testing_ground.wsgi
+web: python manage.py makemigrations && python manage.py migrate && gunicorn taskbyte.wsgi
