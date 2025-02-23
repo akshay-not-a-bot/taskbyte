@@ -5,7 +5,7 @@ import environ
 # settings for environment
 env = environ.Env(
     DEBUG=(bool, False),
-    ALLOWED_HOSTS=(list, ["localhost"]),
+    ALLOWED_HOSTS=(list, ["localhost", "127.0.0.1"]),
 )  # set casting, default value
 environ.Env.read_env()
 
