@@ -1,9 +1,13 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}
   <title>Edit Task - TaskByte</title>
 {% endblock title %}
+{% block background %}
+  style="background: url('{% static 'images/page.jpeg' %}') no-repeat center center/cover; height="100vh"; overflow: hidden;"
+{% endblock background %}
 {% block content %}
-  <div class="container">
+  <div class="container mt-5 pt-4">
     <br />
     <!-- Adding owner only restriction to edit function -->
     {% if task.owner == request.user %}
@@ -11,7 +15,7 @@
       <form method="POST">
         {% csrf_token %}    <!-- must have security token -->
         <div class="mb-3">
-          <label class="form-label">Task</label>
+          <label class="form-label fw-bold">Task</label>
           <input type="text"
                  class="form-control"
                  name="task"
@@ -20,7 +24,7 @@
           <!-- name attr to connect it with model's "task" field -->
         </div>
         <div class="mb-3">
-          <label class="form-label">Priority</label>
+          <label class="form-label fw-bold">Priority</label>
           <input type="text"
                  class="form-control"
                  name="prio"
@@ -28,13 +32,13 @@
                  value="{{ task.prio }}">
         </div>
         <div class="mb-3">
-          <label class="form-label">Finished?</label>
+          <label class="form-label fw-bold">Finished?</label>
           <input type="checkbox"
                  class="form-check-input"
                  name="done"
                  {% if task.done %}checked{% endif %}>
         </div>
-        <button type="submit" class="btn btn-primary">Update Task</button>
+        <button type="submit" class="btn btn-primary fw-semibold">Update Task</button>
       </form>
     {% else %}
       <h6>User access denied!</h6>

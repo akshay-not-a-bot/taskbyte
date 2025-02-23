@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 {% load static %}
-{% block background %}
-    style="background: url('{% static 'images/page.jpeg' %}') no-repeat center center/cover; height="100vh"; overflow: hidden;"
-{% endblock background %}
 {% block title %}
     <title>ToDo List</title>
 {% endblock title %}
+{% block background %}
+    style="background: url('{% static 'images/page.jpeg' %}') no-repeat center center/cover; height="100vh"; overflow: hidden;"
+{% endblock background %}
 {% block content %}
-    <div class="container">
+    <div class="container mt-5 pt-4">
         <br />
         <!-- Displaying alert msg for successful task completion with close button -->
         {% if messages %}
@@ -42,7 +42,8 @@
             <button type="submit" class="btn btn-primary">Add Task</button>
         </form>
         <br />
-        <table class="table table-hover table-bordered">
+        <table class="table table-hover border border-2 fw-medium"
+               style="color: rgb(0, 21, 127) !important">
             <thead class="table-primary">
                 <tr>
                     <th scope="col">Task</th>
@@ -52,7 +53,7 @@
                     <th scope="col" class="text-center">Delete</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody style="color: rgb(0, 21, 127) !important">
                 {% if all_task %}
                     {% for task in all_task %}
                         <tr>

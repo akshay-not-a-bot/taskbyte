@@ -36,7 +36,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
+          <div class="navbar-nav fw-bold">
             <a class="nav-link" href="{% url 'index' %}">Home</a>
             <a class="nav-link" href="{% url 'todo_list' %}">ToDos</a>
             <a class="nav-link" href="{% url 'contact' %}">Contact me</a>
@@ -45,7 +45,7 @@
         </div>
         <!-- Navbar- right side, Login- Register or Logout by checking if user is logged in -->
         {% if user.is_authenticated %}
-          <span class="navbar-text me-3">{{ user.username }}</span>
+          <span class="navbar-text fw-medium me-3">{{ user.username }}</span>
           <form action="{% url 'logout' %}" method="post" class="d-flex ms-auto">
             {% csrf_token %}
             <button type="submit" class="btn btn-outline-danger">Logout</button>

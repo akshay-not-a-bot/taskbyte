@@ -1,11 +1,21 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}
   <title>Logout - TaskByte</title>
 {% endblock title %}
+{% block background %}
+  style="background: url('{% static 'images/diary.jpg' %}') no-repeat center center/cover; height="100vh"; overflow: hidden;"
+{% endblock background %}
 {% block content %}
-  <div class="container">
+  <div class="container text-center text-light mt-5 pt-3">
     <br>
-    <h1>Thanks for visiting</h1>
+    <h2>Thanks for visiting</h2>
     <h4>You have logged out of your account</h4>
+    <p>Redirecting to the home page. . .</p>
   </div>
+  <script>
+        setTimeout(function() {
+            window.location.href = "{% url 'index' %}";
+        }, 3000);  // Redirects to index/home page after 5 seconds
+  </script>
 {% endblock content %}

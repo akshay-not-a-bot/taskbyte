@@ -1,8 +1,12 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
+{% load static %}
 {% block title %}
   <title>Register - TaskByte</title>
 {% endblock title %}
+{% block background %}
+  style="background: url('{% static 'images/diary.jpg' %}') no-repeat center center/cover; height="100vh"; overflow: hidden;"
+{% endblock background %}
 {% block content %}
   <div class="container">
     {% if messages %}
