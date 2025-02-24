@@ -1,7 +1,11 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}
   <title>Account</title>
 {% endblock title %}
+{% block background %}
+  style="background: url('{% static 'images/diary.jpg' %}') no-repeat center center/cover; height="100vh"; overflow: hidden;"
+{% endblock background %}
 {% block content %}
   <div class="container mt-5 pt-5">
     <h1>{{ acc_msg }}</h1>
