@@ -5,7 +5,10 @@ import environ
 # settings for environment
 env = environ.Env(
     DEBUG=(bool, False),
-    ALLOWED_HOSTS=(list, ["localhost", "127.0.0.1"]),
+    ALLOWED_HOSTS=(
+        list,
+        ["localhost", "127.0.0.1", "itchy-shayne-taskbyte-be317291.koyeb.app"],
+    ),
 )  # set casting, default value
 environ.Env.read_env()
 
