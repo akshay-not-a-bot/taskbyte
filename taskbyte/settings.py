@@ -5,7 +5,10 @@ import environ
 # settings for environment
 env = environ.Env(
     DEBUG=(bool, False),
-    ALLOWED_HOSTS=(list, ["localhost", "127.0.0.1"]),
+    ALLOWED_HOSTS=(
+        list,
+        ["localhost", "127.0.0.1", "itchy-shayne-taskbyte-be317291.koyeb.app"],
+    ),
 )  # set casting, default value
 environ.Env.read_env()
 
@@ -42,13 +45,13 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = "taskbyte.urls"
@@ -82,7 +85,7 @@ DATABASES = {
         "USER": env("DATABASE_USER"),
         "PASSWORD": env("DATABASE_PASSWORD"),
         "HOST": env("DATABASE_HOST"),
-        "PORT": env("DATABASE_PORT"),
+        # "PORT": env("DATABASE_PORT"),
     }
 }
 
