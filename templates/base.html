@@ -45,14 +45,16 @@
         </div>
         <!-- Navbar- right side, Login- Register or Logout by checking if user is logged in -->
         {% if user.is_authenticated %}
-          <span class="navbar-text fw-medium me-3">{{ user.username }}</span>
+          <a class="navbar-text fw-medium me-3" href="{% url 'account' %}">{{ user.username }}</a>
           <form action="{% url 'logout' %}" method="post" class="d-flex ms-auto">
             {% csrf_token %}
-            <button type="submit" class="btn btn-outline-danger">Logout</button>
+            <button type="submit" class="btn btn-outline-danger fw-bold">Logout</button>
           </form>
         {% else %}
-          <a href="{% url 'login' %}" class="btn btn-primary shadow me-2">Login</a>
-          <a href="{% url 'register' %}" class="btn btn-primary shadow">Register</a>
+          <a href="{% url 'login' %}"
+             class="btn btn-outline-success fw-bold shadow me-2">Login</a>
+          <a href="{% url 'register' %}"
+             class="btn btn-outline-primary fw-bold shadow">Register</a>
         {% endif %}
       </div>
     </nav>

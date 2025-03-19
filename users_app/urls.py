@@ -14,4 +14,14 @@ urlpatterns = [
         auth_views.LogoutView.as_view(template_name="logout.html"),
         name="logout",
     ),
+    path(
+        "pswd_change",
+        auth_views.PasswordChangeView.as_view(template_name="pswd_change.html"),
+        name="pswd_change",
+    ),
+    path(
+        "pswd_done",
+        auth_views.PasswordChangeDoneView.as_view(template_name="pswd_done.html"),
+        name="pswd_done",
+    ),
 ]

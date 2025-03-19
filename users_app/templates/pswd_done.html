@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Password Changed</title>
+{% endblock title %}
+
+{% block background %}
+    style="background: url('{% static 'images/diary.jpg' %}') no-repeat center center/cover; height: 100vh; overflow: hidden;"
+{% endblock background %}
+
+{% block content %}
+    <div class="container mt-5 pt-5 d-flex justify-content-center">
+        <div class="p-4 text-center"
+             style="max-width: 500px;
+                    background: rgba(255, 255, 255, 0.1);
+                    backdrop-filter: blur(10px);
+                    border-radius: 12px;
+                    color: white">
+
+            <h2 class="mb-3">Password Changed Successfully</h2>
+            <p>Your password has been updated.</p>
+            <a href="{% url 'account' %}" class="btn btn-light btn-sm fw-bold">Return to Account</a>
+        </div>
+    </div>
+{% endblock content %}
