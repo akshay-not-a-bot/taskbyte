@@ -64,11 +64,6 @@ def index(request):
     return render(request, "index.html", context)
 
 
-def contact(request):
-    context = {"contact_msg": "Hi, this is Contact Me page"}
-    return render(request, "contact.html", context)
-
-
 def about(request):
     context = {"about_msg": "Hi, this is About Me page"}
     return render(request, "about.html", context)
