@@ -1,13 +1,59 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 {% load static %}
+
+{% block title %}
+  About Me - TaskByte
+{% endblock title %}
+
 {% block background %}
   style="background: url('{% static 'images/page.jpeg' %}') no-repeat center center/cover; height="100vh"; overflow: hidden;"
 {% endblock background %}
-{% block title %}
-  <title>About Me</title>
-{% endblock title %}
+
 {% block content %}
   <div class="container mt-5 pt-5">
-    <h1>{{ about_msg }}</h1>
+    <!-- Added pt-5 for extra top padding -->
+    <h2 class="text-center mb-4">About Me</h2>
+
+    <div class="text-center">
+      <img src="{% static 'images/profile.jpg' %}"
+           alt="Profile Picture"
+           class="rounded-circle mb-3 shadow"
+           width="150">
+    </div>
+
+    <div class="col-md-8 mx-auto text-center">
+      <p class="lead">
+        Hi, I'm <strong>Akshay Patel</strong>, a passionate self-taught Python developer.
+      </p>
+      <p class="lead">
+        I created <strong>TaskByte</strong> to help users stay productive and organize their daily tasks efficiently.
+      </p>
+      <p class="lead">
+        I'm currently learning and working on <strong>Python: Backend Development & App Development</strong>, and I love building
+        useful tools that make life easier.
+      </p>
+    </div>
+
+    <h4 class="text-center mt-5">Connect with Me</h4>
+    <div class="text-center mb-4">
+      <a href="https://github.com/akshay-not-a-bot"
+         class="btn btn-dark me-2"
+         target="_blank">
+        <i class="fab fa-github"></i> GitHub
+      </a>
+      <a href="https://www.linkedin.com/in/akshaypatel-2710/"
+         class="btn btn-primary me-2"
+         target="_blank">
+        <i class="fab fa-linkedin"></i> LinkedIn
+      </a>
+      <a href="mailto:akshay.tester01@gmail.com" class="btn btn-danger">
+        <i class="fas fa-envelope"></i> Email
+      </a>
+    </div>
+
+    <h4 class="text-center mt-5">Technologies I Use</h4>
+    <p class="text-center">
+      Python | Django | Jinja | PostgreSQL/SQLite | Bootstrap | Tkinter(ttkbootstrap) | Git | Github | REST API | Koyeb
+    </p>
   </div>
 {% endblock content %}
